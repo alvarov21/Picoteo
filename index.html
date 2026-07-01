@@ -620,6 +620,67 @@
             font-size: 2rem;
         }
 
+        .full-menu-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease, margin-top 0.4s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .full-menu-wrapper.open {
+            max-height: 4000px;
+            opacity: 1;
+            margin-top: 40px;
+        }
+
+        .full-menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #FAFAF8;
+            padding: 40px;
+            border: 1px solid rgba(200, 169, 110, 0.2);
+        }
+
+        .full-menu-category {
+            margin-bottom: 30px;
+        }
+
+        .full-menu-category h4 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(200, 169, 110, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .full-menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            align-items: baseline;
+        }
+
+        .full-menu-item .name {
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .full-menu-item .price {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            margin-left: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .full-menu-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+
         .menu-footer {
             text-align: center;
             margin-top: 50px;
@@ -1362,7 +1423,61 @@
         </div>
 
         <div class="menu-footer fade-up">
-            <a href="#" class="btn btn-outline" style="color: var(--primary); border-color: var(--primary)">Ver Carta Completa en picoteobaena.com</a>
+            <button id="toggle-full-menu" class="btn btn-outline" style="color: var(--primary); border-color: var(--primary); cursor: pointer; background: transparent; font-family: inherit; font-size: inherit;">Ver Carta Completa en picoteobaena.com <i data-lucide="chevron-down" style="width: 18px; margin-left: 8px; vertical-align: middle; transition: transform 0.3s ease;"></i></button>
+        </div>
+
+        <div id="full-menu-dropdown" class="full-menu-wrapper">
+            <div class="full-menu-grid">
+                <div class="full-menu-col">
+                    <div class="full-menu-category">
+                        <h4 class="serif">Fríos & Tapas</h4>
+                        <div class="full-menu-item"><span class="name">Boquerones en vinagre</span><span class="price">12,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Ensaladilla ucraniana con lomitos de atún</span><span class="price">10,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Croquetas caserísimas de siempre</span><span class="price">10,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Patatas al pelotón con virutas de jamón ibérico</span><span class="price">10,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Tostón de salmón, tomate y queso azul</span><span class="price">8,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Gyozas de carrillada</span><span class="price">12,00 €</span></div>
+                    </div>
+                    <div class="full-menu-category">
+                        <h4 class="serif">Ibéricos</h4>
+                        <div class="full-menu-item"><span class="name">Jamón ibérico +100g</span><span class="price">16,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Surtido de ibéricos</span><span class="price">22,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Salchichón de Noalejo</span><span class="price">10,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Chorizo de Noalejo</span><span class="price">10,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Tartar de salchichón</span><span class="price">12,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Mixto jamón ibérico y queso</span><span class="price">18,00 €</span></div>
+                    </div>
+                </div>
+                <div class="full-menu-col">
+                    <div class="full-menu-category">
+                        <h4 class="serif">Del Mar</h4>
+                        <div class="full-menu-item"><span class="name">Pulpo a la brasa con crema trufada de pimentón</span><span class="price">18,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Rodaballo al horno, chutney de piña y cuscús negro</span><span class="price">18,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Chipirones patagónicos braseados con Beurre Blanc</span><span class="price">14,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Lomo de bacalao gratinado, alioli de ajo asado y miel</span><span class="price">14,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Sepia a la plancha con patatas panaderas</span><span class="price">12,90 €</span></div>
+                    </div>
+                    <div class="full-menu-category">
+                        <h4 class="serif">De la Tierra</h4>
+                        <div class="full-menu-item"><span class="name">Presa ibérica de bellota con patatas y huevos rotos</span><span class="price">14,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Costillar asado (500g) con salsa BBQ</span><span class="price">14,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Alcachofas en flor de foie de pato y salsa romescu (3 und.)</span><span class="price">15,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Carrillada de cerdo estofada con cremoso de patata</span><span class="price">12,90 €</span></div>
+                        <div class="full-menu-item"><span class="name">Puerro a baja temperatura, almejas y gambas</span><span class="price">15,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Medallones de solomillo marinado (adobo secreto)</span><span class="price">12,90 €</span></div>
+                    </div>
+                    <div class="full-menu-category">
+                        <h4 class="serif">Postres</h4>
+                        <div class="full-menu-item"><span class="name">Tarta de queso top</span><span class="price">6,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Tiramisú</span><span class="price">6,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Milhojas extracrujientes de crema de boniato</span><span class="price">6,00 €</span></div>
+                        <div class="full-menu-item"><span class="name">Leche merengada</span><span class="price">6,00 €</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 30px;">
+                <a href="https://picoteobaena.com" target="_blank" class="btn btn-primary" style="font-size: 0.85rem;"><i data-lucide="external-link" style="width: 16px; margin-right: 8px; vertical-align: middle;"></i> Ver web oficial picoteobaena.com</a>
+            </div>
         </div>
     </section>
 
@@ -1614,6 +1729,24 @@
                 }, 500);
             }, 1500); // 1.5s as requested
         });
+
+        // Full Menu Toggle
+        const toggleMenuBtn = document.getElementById('toggle-full-menu');
+        const fullMenuDropdown = document.getElementById('full-menu-dropdown');
+        
+        if (toggleMenuBtn && fullMenuDropdown) {
+            toggleMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                fullMenuDropdown.classList.toggle('open');
+                if (fullMenuDropdown.classList.contains('open')) {
+                    toggleMenuBtn.innerHTML = 'Cerrar Carta <i data-lucide="chevron-up" style="width: 18px; margin-left: 8px; vertical-align: middle; transition: transform 0.3s ease;"></i>';
+                    lucide.createIcons(); // refresh icons
+                } else {
+                    toggleMenuBtn.innerHTML = 'Ver Carta Completa en picoteobaena.com <i data-lucide="chevron-down" style="width: 18px; margin-left: 8px; vertical-align: middle; transition: transform 0.3s ease;"></i>';
+                    lucide.createIcons();
+                }
+            });
+        }
 
         // Navbar Scroll Effect & Parallax
         const navbar = document.querySelector('.navbar');
