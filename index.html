@@ -223,6 +223,18 @@
             font-size: 2rem;
             color: #fff;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease;
+        }
+        
+        .navbar.scrolled .logo img {
+            filter: none;
         }
 
         .nav-links {
@@ -289,7 +301,7 @@
             left: 0;
             width: 100%;
             height: 120%; /* For parallax */
-            background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop') no-center center/cover;
+            background: url('assets/media__1782902470727.jpg') no-repeat center/cover;
             z-index: -2;
             transform: translateY(0);
         }
@@ -853,7 +865,7 @@
 
         /* CTA Final */
         .cta-final {
-            background: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1934&auto=format&fit=crop') center/cover;
+            background: url('assets/media__1782902470728.jpg') center/cover;
             position: relative;
             padding: 150px 20px;
             text-align: center;
@@ -1048,7 +1060,7 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="logo serif">PICOTEO</a>
+        <a href="#" class="logo"><img src="assets/media__1782902385400.png" alt="Picoteo Logo"></a>
         <div class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#nosotros">Nosotros</a>
@@ -1088,7 +1100,7 @@
     <!-- About -->
     <section id="nosotros" class="about">
         <div class="about-img fade-up">
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" alt="Taberna Picoteo" id="about-img">
+            <img src="assets/media__1782902470723.jpg" alt="Taberna Picoteo" id="about-img">
         </div>
         <div class="about-content fade-up" style="transition-delay: 200ms">
             <h2 class="serif">Una taberna que abrió camino</h2>
@@ -1359,12 +1371,12 @@
         <h2 class="serif fade-up">Momentos Picoteo</h2>
         <div class="bento-grid">
             <!-- Images from Unsplash -->
-            <div class="bento-item fade-up" data-img="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop">
-                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=800&auto=format&fit=crop" alt="Tapas">
+            <div class="bento-item fade-up" data-img="assets/media__1782901835375.jpg">
+                <img src="assets/media__1782901835375.jpg" alt="Tapas">
                 <div class="bento-overlay"><i data-lucide="plus"></i></div>
             </div>
-            <div class="bento-item fade-up" style="transition-delay: 100ms" data-img="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1934&auto=format&fit=crop">
-                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop" alt="Restaurante">
+            <div class="bento-item fade-up" style="transition-delay: 100ms" data-img="assets/media__1782902470740.jpg">
+                <img src="assets/media__1782902470740.jpg" alt="Restaurante">
                 <div class="bento-overlay"><i data-lucide="plus"></i></div>
             </div>
             <div class="bento-item fade-up" style="transition-delay: 200ms" data-img="https://images.unsplash.com/photo-1627308595229-7830f5c95f9d?q=80&w=1974&auto=format&fit=crop">
@@ -1508,7 +1520,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-logo serif">PICOTEO</div>
+        <div class="footer-logo"><img src="assets/media__1782902385400.png" alt="Picoteo Logo" style="height: 60px; margin: 0 auto; filter: brightness(0) invert(1);"></div>
         <div class="footer-tagline">Grupo Gastrobrío · Cocina de vanguardia en Baena desde 2010</div>
         
         <div class="footer-nav">
